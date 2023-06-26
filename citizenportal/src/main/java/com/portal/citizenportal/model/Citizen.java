@@ -16,16 +16,16 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name = "citizendata")
+@Entity(name = "citizendata1")
 public class Citizen {
 
     @NotNull(message="Id Cannot be null")
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     int id;
 
-//    @NotBlank(message="Name cannot be Blank")
+    @NotBlank(message="Name cannot be Blank")
     @NotNull(message="Name cannot be null")
     @Column(name = "name")
     String citizenName;
@@ -35,7 +35,7 @@ public class Citizen {
     String citizenAddress;
 
     @Column(name = "phone")
-    String citizenphone;
+    String citizenPhone;
 
     @Column(name = "dob")
     LocalDate dateOfBirth;
