@@ -41,15 +41,15 @@ public class CitizenController {
     @PostMapping(path = "/create")
     public ResponseEntity<Response> save(@RequestBody @Valid CitizenContract citizens) {
 
-        LocalDate yesterday = LocalDate.now().minusDays(1);
-        if(citizens.getDateOfBirth().isAfter(yesterday)){
-            return new ResponseEntity<>( Response.builder().message("Error in date").build(), HttpStatus.BAD_REQUEST);
-        }
+        LocalDate yesterday = LocalDate.now().minusDays(365*18);
+//        if(citizens.getDateOfBirth().isAfter(yesterday)){
+//            return new ResponseEntity<>( Response.builder().message("The birth date must be greater or equal than 18").build(), HttpStatus.BAD_REQUEST);
+//        }
         if(citizens.getCitizenName() == null){
-            return new ResponseEntity<>( Response.builder().message("Name could not be null").build(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>( Response.builder().message("Name must not be null or blank").build(), HttpStatus.BAD_REQUEST);
         }
         if(citizens.getCitizenAddress() == null){
-            return new ResponseEntity<>( Response.builder().message("Address could not be null").build(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>( Response.builder().message("Address must not be null or blank").build(), HttpStatus.BAD_REQUEST);
         }
         citizenService.createCitizen(citizens);
         return new ResponseEntity<>(
