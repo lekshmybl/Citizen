@@ -2,15 +2,10 @@ package com.portal.citizenportal.service;
 
 import com.portal.citizenportal.contract.CitizenContract;
 import com.portal.citizenportal.model.Citizen;
-import com.portal.citizenportal.model.Response;
 import com.portal.citizenportal.repository.CitizenRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
