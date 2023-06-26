@@ -45,12 +45,7 @@ public class CitizenController {
         if(citizens.getDateOfBirth().isAfter(yesterday)){
             return new ResponseEntity<>( Response.builder().message("The birth date must be greater or equal than 18").build(), HttpStatus.BAD_REQUEST);
         }
-        if(citizens.getCitizenName() == null){
-            return new ResponseEntity<>( Response.builder().message("Name must not be null or blank").build(), HttpStatus.BAD_REQUEST);
-        }
-        if(citizens.getCitizenAddress() == null){
-            return new ResponseEntity<>( Response.builder().message("Address must not be null or blank").build(), HttpStatus.BAD_REQUEST);
-        }
+
         citizenService.createCitizen(citizens);
         return new ResponseEntity<>(
                 Response.builder().message("SUCCESS").payload(citizens).build(), HttpStatus.OK);
