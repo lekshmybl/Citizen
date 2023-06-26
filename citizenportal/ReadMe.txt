@@ -1,0 +1,1 @@
+Swagger Url: http://localhost:8082/citizen-portal/swagger-ui/index.html
